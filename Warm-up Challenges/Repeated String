@@ -1,0 +1,38 @@
+# ===================================
+#   Problem statement & information
+# ===================================
+
+# There is a string, s, of lowercase English letters that is repeated infinitely many times. Given an integer, n, find and print the number of letter a's in the first n letters of the infinite string.
+
+# Difficulty: Easy
+# Max Score: 20
+# Language: Python
+
+# ===================================
+#              Solution
+# ===================================
+
+#!/bin/python3
+
+import os
+
+def repeatedString(s, n):
+    m1 = n // len(s)
+    m2 = n % len(s)
+    if m2 != 0:
+        return s.count('a')*m1 + s[:m2].count('a')
+    else:
+        return s.count('a')*m1
+        
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    n = int(input().strip())
+
+    result = repeatedString(s, n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
