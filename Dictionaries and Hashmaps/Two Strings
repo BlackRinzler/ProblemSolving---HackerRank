@@ -1,0 +1,42 @@
+# ===================================
+#   Problem statement & information
+# ===================================
+
+# Given two strings, determine if they share a common substring. A substring may be as small as one character.
+
+# Difficulty: Easy
+# Max Score: 25
+# Language: Python
+
+# ===================================
+#             Solutions
+# ===================================
+
+#!/bin/python3
+
+import os
+
+def twoStrings(s1, s2):
+    dic_s1 = {}
+    for char in s1:
+        dic_s1[char] = dic_s1.get(char, 0) + 1
+    for char in s2:
+        if char in dic_s1:
+            return str.upper("yes")
+    return str.upper("no")
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input().strip())
+
+    for q_itr in range(q):
+        s1 = input()
+
+        s2 = input()
+
+        result = twoStrings(s1, s2)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
